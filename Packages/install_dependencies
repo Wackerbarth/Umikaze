@@ -26,6 +26,7 @@ python-numpy \
 python-smbus \
 python-gi-cairo \
 libavahi-compat-libdnssd1 \
+libnss-mdns \
 screen \
 tmux \
 htop \
