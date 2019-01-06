@@ -10,6 +10,20 @@ cd Packages
 
 echo "**install_redeem**"
 set -x
+
+apt-get install --no-install-recommends -y \
+swig \
+python-scipy \
+python-numpy \
+python-smbus \
+ti-pru-cgt-installer
+
+if [ ! -d "/usr/src/pru-software-support-package" ]; then
+  git clone --branch v5.1.0 --single-branch --depth 1 git://git.ti.com/pru-software-support-package/pru-software-support-package.git /usr/src/pru-software-support-package
+fi
+
+pip install numpy evdev spidev Adafruit_BBIO Adafruit-GPIO sympy docutils sh
+
 if [ ! -d $REDEEM_HOME ]; then
   git clone $REDEEM_REPOSITORY --single-branch --branch $REDEEM_BRANCH $REDEEM_HOME
 fi
